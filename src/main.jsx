@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Counter from "./components/Counter";
+import Home from "./layout/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Counter></Counter>,
+    element: <Home></Home>,
   },
 ]);
 

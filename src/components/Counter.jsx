@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Counter.css";
 
-const Counter = () => {
+const Counter = ({onDelete}) => {
   const [count, setCount] = useState(0);
   const [startValue, setStartValue] = useState("");
   const [editingStartValue, setEditingStartValue] = useState(false);
@@ -37,10 +37,10 @@ const Counter = () => {
     setEditingStartValue(!editingStartValue);
   };
 
-  const toggleEditMode = () => {
-    setIsEditingName(!isEditingName);
-    setNewCounterName("");
-  };
+//   const toggleEditMode = () => {
+//     setIsEditingName(!isEditingName);
+//     setNewCounterName("");
+//   };
 
   const handleCounterNameChange = (event) => {
     setNewCounterName(event.target.value);
@@ -57,9 +57,18 @@ const Counter = () => {
     setIsEditingName(true);
   };
 
+  const handleDelete = () => {
+    onDelete();
+  };
+
   return (
     <div className="container">
-      <div className="title">{counterName}</div>
+      <div className="flex">
+        <div className="title">{counterName}</div>
+        <div>
+          <button onClick={handleDelete}>X</button>
+        </div>
+      </div>
       <input readOnly className="input" type="number" value={count} />
       <div>
         <button className="btn" onClick={incrementCount}>
